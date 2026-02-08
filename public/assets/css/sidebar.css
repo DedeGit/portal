@@ -1,0 +1,236 @@
+.sidebar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+}
+.sidebar-hidden {
+    display: none !important;
+}
+/* Sidebar umum */
+.sidebar {
+    position: fixed;
+    top: 70px;
+    height: calc(100vh - 70px);
+    width: 200px;
+
+    /* TRANSPARAN */
+    background-color: transparent !important;
+    box-shadow: none !important;
+
+    padding: 15px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    pointer-events: auto;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Sidebar kiri */
+.sidebar-left {
+    left: 0;
+    border-right: 1px solid #ccc;
+    transform: translateX(0);
+}
+
+/* Sidebar kanan */
+.sidebar-right {
+    right: 0;
+    border-left: 1px solid #ccc;
+    transform: translateX(0);
+}
+
+/* Tombol toggle di dalam sidebar kiri (posisi kanan dalam sidebar) */
+.sidebar-left .sidebar-toggle.toggle-right {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    font-size: 24px;
+    background-color: #444;
+    color: white;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+/* Tombol toggle di dalam sidebar kanan (posisi kiri dalam sidebar) */
+.sidebar-right .sidebar-toggle.toggle-left {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    font-size: 24px;
+    background-color: #444;
+    color: white;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+/* Tombol toggle yang muncul di luar sidebar */
+.sidebar-toggle.open-btn {
+    position: fixed;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 10000;
+    user-select: none;
+    pointer-events: auto;
+    display: none;
+}
+
+/* Tombol toggle muncul di luar sidebar kiri (kanan layar) */
+.sidebar-toggle.open-btn.right {
+    right: 0;
+}
+
+/* Tombol toggle muncul di luar sidebar kanan (kiri layar) */
+.sidebar-toggle.open-btn.left {
+    left: 0;
+}
+
+.sidebar-title {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-align: center;
+
+    /* tambahan */
+    background: transparent;
+    color: #111;
+}
+
+
+.ad-item {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.ad-item img {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+
+.ad-item img:hover {
+    transform: scale(1.05);
+}
+
+.ad-caption {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Responsive - sembunyikan sidebar dan tombol toggle pada layar kecil */
+@media (max-width: 768px) {
+    .sidebar,
+    .sidebar-toggle.open-btn {
+        display: none !important;
+    }
+}
+
+.article-header {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+.breadcrumb a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.article-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 10px 0 15px;
+    line-height: 1.2;
+}
+
+.article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.article-meta > div {
+    display: flex;
+    align-items: center;
+}
+
+.author-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+    border-radius: 50%;
+}
+
+.date-time i,
+.print-link i {
+    margin-right: 5px;
+    color: #666;
+}
+
+.print-link a {
+    color: green;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.print-link a:hover {
+    text-decoration: underline;
+}
+
+.views-count {
+    color: green;
+    font-weight: 700;
+}
+
+@media print {
+  /* Sembunyikan elemen yang tidak ingin dicetak */
+  header, footer, nav, .sidebar, .ads, .no-print {
+    display: none !important;
+  }
+
+  /* Tampilkan hanya konten utama */
+  main, .article-detail-container {
+    display: block !important;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
