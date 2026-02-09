@@ -22,7 +22,7 @@ Website portal berita berbasis web.
 Import file `database/newsportal.sql` ke phpMyAdmin.
 
 ## Screenshot
-![Homepage](screenshots/home.png)
+![Homepage](screenshots/home.PNG)
 
 ## Author
 Dede Fadillah
